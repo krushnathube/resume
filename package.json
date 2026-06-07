@@ -1,7 +1,7 @@
 {
   "name": "resume-generator",
   "version": "1.0.0",
-  "description": "Dynamic resume generator - outputs DOCX and PDF formats",
+  "description": "A powerful JSON-driven resume generator that creates professionally formatted DOCX and PDF documents. Perfect for developers who want to version control their resume.",
   "main": "resume.js",
   "scripts": {
     "start": "node resume.js",
@@ -11,15 +11,29 @@
     "resume",
     "docx",
     "pdf",
-    "generator"
+    "generator",
+    "cv",
+    "curriculum-vitae",
+    "resume-builder",
+    "document-generation",
+    "json-to-document",
+    "professional"
   ],
-  "author": "Krushna Thube",
+  "author": "Krushna Thube <krushnathube19@gmail.com>",
+  "homepage": "https://github.com/krushnathube/resume",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krushnathube/resume.git"
+  },
+  "bugs": {
+    "url": "https://github.com/krushnathube/resume/issues"
+  },
   "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "dependencies": {
     "docx": "^8.11.8",
     "docx-to-pdf": "^2.5.1"
-  },
-  "engines": {
-    "node": ">=14.0.0"
   }
 }
