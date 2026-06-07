@@ -3,7 +3,6 @@ const {
   AlignmentType, BorderStyle, WidthType, ShadingType, LevelFormat,
 } = require('docx');
 const fs = require('fs');
-const { convert } = require('docx-to-pdf');
 
 // Load resume data from JSON
 const resumeData = JSON.parse(fs.readFileSync('./resume-data.json', 'utf8'));
@@ -260,19 +259,8 @@ const doc = new Document({
 
 Packer.toBuffer(doc).then(buf => {
   const docxPath = "/mnt/user-data/outputs/Krushna_Thube_Resume.docx";
-  const pdfPath = "/mnt/user-data/outputs/Krushna_Thube_Resume.pdf";
-  
+
   fs.writeFileSync(docxPath, buf);
   console.log("Generated DOCX: Krushna_Thube_Resume.docx");
-  
-  // Convert DOCX to PDF
-  convert({
-    input: docxPath,
-    output: pdfPath
-  }).then(() => {
-    console.log("Generated PDF: Krushna_Thube_Resume.pdf");
-    console.log("Done - Both DOCX and PDF generated successfully");
-  }).catch(err => {
-    console.error("PDF conversion failed:", err);
-  });
+  console.log("Done - DOCX generated successfully.");
 });

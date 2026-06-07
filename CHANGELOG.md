@@ -4,11 +4,10 @@ All notable changes to the Dynamic Resume Generator project will be documented i
 
 ## [1.0.0] - 2026-06-07
 
-### Added
+- ### Added
 - Initial release of Dynamic Resume Generator
 - JSON-based resume content management
 - DOCX document generation
-- PDF export support (DOCX to PDF conversion)
 - Professional resume template with custom styling
 - Support for multiple sections:
   - Personal information
@@ -24,10 +23,10 @@ All notable changes to the Dynamic Resume Generator project will be documented i
 - Contributing guidelines
 - MIT License
 
-### Features
+- ### Features
 - Version control friendly (Git-compatible)
-- Dual format output (DOCX + PDF)
 - Customizable styling and colors
+*** End Patch
 - Easy content updates via JSON
 - Professional ATS-friendly formatting
 - Batch processing support

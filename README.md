@@ -2,7 +2,7 @@
 
 ![Node.js](https://img.shields.io/badge/Node.js-v14+-green) ![License](https://img.shields.io/badge/License-MIT-blue) ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-A powerful, JSON-driven resume generator that creates professionally formatted **DOCX and PDF** documents from simple JSON data. Perfect for developers who want to version control their resume and easily update content without touching code.
+A powerful, JSON-driven resume generator that creates professionally formatted **DOCX** documents from simple JSON data. Perfect for developers who want to version control their resume and easily update content without touching code.
 
 ## ✨ Features
 
@@ -73,7 +73,6 @@ npm start
 
 The script generates:
 - `Krushna_Thube_Resume.docx` - Professional Word document
-- `Krushna_Thube_Resume.pdf` - PDF version
 
 Files are saved in `/mnt/user-data/outputs/` directory.
 
@@ -118,18 +117,18 @@ const CONTACT_GRAY = "555555";  // Contact info color
 ### Change Output Filename
 
 Update the paths in `resume.js`:
-
+// const pdfPath = "/path/to/your/Resume.pdf"; // PDF path removed
 ```javascript
 const docxPath = "/path/to/your/Resume.docx";
 const pdfPath = "/path/to/your/Resume.pdf";
 ```
 
-## 📦 Dependencies
+- *Note:* PDF conversion is not included by default. Use an external converter if you need PDF output.
 
 - **[docx](https://github.com/dolanmiu/docx)** - Generate DOCX documents
-- **[docx-to-pdf](https://github.com/dolanmiu/docx-to-pdf)** - Convert DOCX to PDF
+- **[docx-to-pdf](https://github.com/dolanmiu/docx-to-pdf)** (optional) - Convert DOCX to PDF; removed from this project by default
 
-## 🔧 npm Scripts
+npm start          # Generate resume (DOCX)
 
 ```bash
 npm start          # Generate resume (DOCX + PDF)
@@ -139,7 +138,7 @@ npm run generate   # Alias for npm start
 ## 💡 Use Cases
 
 - **Version Control Your Resume** - Track changes over time with Git
-- **Bulk Updates** - Update multiple jobs/projects at once in JSON
+- **Multiple Formats** - Generate DOCX (use external tools to convert to PDF)
 - **Consistency** - Ensure consistent formatting across all documents
 - **Automation** - Integrate with CI/CD pipelines for automatic generation
 - **Multiple Formats** - Generate both DOCX and PDF instantly

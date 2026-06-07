@@ -1,7 +1,7 @@
 {
   "name": "resume-generator",
   "version": "1.0.0",
-  "description": "A powerful JSON-driven resume generator that creates professionally formatted DOCX and PDF documents. Perfect for developers who want to version control their resume.",
+  "description": "A powerful JSON-driven resume generator that creates professionally formatted DOCX documents. Perfect for developers who want to version control their resume.",
   "main": "resume.js",
   "scripts": {
     "start": "node resume.js",
@@ -10,7 +10,6 @@
   "keywords": [
     "resume",
     "docx",
-    "pdf",
     "generator",
     "cv",
     "curriculum-vitae",
@@ -33,7 +32,6 @@
     "node": ">=14.0.0"
   },
   "dependencies": {
-    "docx": "^8.11.8",
-    "docx-to-pdf": "^2.5.1"
+    "docx": "^9.7.1"
   }
 }
