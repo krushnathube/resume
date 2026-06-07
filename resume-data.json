@@ -1,0 +1,199 @@
+{
+  "personal": {
+    "name": "KRUSHNA THUBE",
+    "title": "Senior Full Stack Developer",
+    "subtitle": "Senior Full Stack Developer  |  Node.js  |  Angular 16+  |  React  |  AWS Serverless  |  Microservices  |  GenAI",
+    "location": "Pune, Maharashtra",
+    "phone": "+91 7387476746",
+    "email": "krushnathube19@gmail.com",
+    "linkedin": "linkedin.com/in/krushna-thube/"
+  },
+  "summary": {
+    "title": "Professional Summary",
+    "content": "Senior Full Stack Developer with 11+ years of experience building scalable SaaS platforms, cloud-native microservices, and high-performance enterprise applications across healthcare, fintech, IoT, ERP, and enterprise collaboration domains. Strong expertise in Node.js, TypeScript, Angular 16+, React, AWS Serverless (Lambda, DynamoDB, API Gateway, S3, CloudWatch, KMS), Kafka-based event-driven systems, Docker, and Kubernetes. Proven ability to deliver production-grade REST APIs, real-time systems, and containerized full-stack applications. Currently advancing expertise in Generative AI, LLMs, RAG pipelines, and AI-assisted development workflows. AWS Certified Solutions Architect — Associate. Consistently recognized for performance optimization, team leadership, and delivering enterprise-grade solutions in Agile environments."
+  },
+  "skills": [
+    {
+      "label": "Languages",
+      "value": "JavaScript (ES6+), TypeScript, SQL, HTML5, CSS3"
+    },
+    {
+      "label": "Frontend",
+      "value": "Angular 16+, TypeScript, React.js, AG Grid, AG Chart, jQuery, Responsive UI"
+    },
+    {
+      "label": "Backend",
+      "value": "Node.js, Express.js, NestJS, REST APIs, GraphQL, WebSockets, Middleware Development, Backend Architecture"
+    },
+    {
+      "label": "Cloud / DevOps",
+      "value": "AWS Lambda, API Gateway, DynamoDB, S3, CloudWatch, KMS, IAM, SQS, SNS, EventBridge, Step Functions, ECS, EC2, Cognito, Docker, Kubernetes, Terraform, Jenkins, GitHub Actions, CI/CD"
+    },
+    {
+      "label": "Databases",
+      "value": "MongoDB, PostgreSQL, MySQL, DynamoDB, Redis, Mongoose, TypeORM"
+    },
+    {
+      "label": "Architecture",
+      "value": "Microservices, Event-Driven Architecture, Kafka, Distributed Systems, Serverless, Monolith-to-Microservices, SaaS Platform Design"
+    },
+    {
+      "label": "Testing",
+      "value": "Jest, Mocha, Chai, Sinon, Supertest, Cypress, Unit Testing, Integration Testing, TDD, ESLint, Prettier"
+    },
+    {
+      "label": "Security & Auth",
+      "value": "JWT, OAuth 2.0, API Security, Rate Limiting, AWS KMS, AWS Cognito"
+    },
+    {
+      "label": "AI / GenAI",
+      "value": "LLMs, RAG Pipelines, Prompt Engineering, Claude API, Amazon Q, GitHub Copilot, AI-Assisted Development"
+    },
+    {
+      "label": "Practices",
+      "value": "System Design, SOLID Principles, OOP, Performance Optimization, Agile / Scrum, Code Reviews, Mentoring"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Guidesly India Pvt. Ltd.",
+      "location": "Bangalore, India",
+      "dates": "Apr 2025 – Present",
+      "role": "Sr. Backend Developer  |  SaaS Platform Engineering",
+      "bullets": [
+        "Designed and developed scalable backend services and RESTful APIs using Node.js, Express.js, and PostgreSQL for a SaaS-based fishing guide platform serving web and mobile clients.",
+        "Built cloud-native serverless solutions using AWS Lambda, API Gateway, DynamoDB, S3, and CloudWatch for scalable event-driven backend workflows.",
+        "Implemented third-party insurance API integrations and developed Classes & Certifications modules for the Guidesly SaaS ecosystem.",
+        "Developed microservice-oriented backend components with focus on scalability, maintainability, and production reliability.",
+        "Containerized backend services using Docker and supported CI/CD deployment automation workflows.",
+        "Improved application quality through automated unit and integration testing using Jest, Mocha, and Chai.",
+        "Collaborated in Agile delivery teams using JIRA and Confluence for sprint planning and release execution."
+      ]
+    },
+    {
+      "company": "Hexaware Technologies",
+      "location": "Pune, India",
+      "dates": "Aug 2021 – Mar 2025",
+      "role": "Sr. Software Engineer — MEAN Stack Developer  |  Healthcare Enterprise Platform",
+      "bullets": [
+        "Architected and delivered scalable Node.js backend services with TypeScript and enterprise REST APIs supporting high-availability healthcare web and mobile platforms.",
+        "Designed and implemented AWS Serverless solutions (Lambda, S3, CloudWatch, KMS) for secure healthcare data processing and event-driven workflows.",
+        "Developed Angular 16+ frontend modules with data-rich dashboards using AG Grid and AG Chart for real-time clinical and operational data visualization.",
+        "Built high-throughput Kafka-based event-driven pipelines for distributed healthcare data processing across web and mobile platforms.",
+        "Authored comprehensive unit tests using Jest and end-to-end test suites using Cypress, maintaining high coverage across critical modules.",
+        "Integrated AI-assisted development tools (Amazon Q, GitHub Copilot) to accelerate feature delivery, code review, and debugging efficiency in Agile CI/CD environments.",
+        "Contributed to containerized application deployment using Docker and participated in system design, API optimization, and backend architecture planning."
+      ]
+    },
+    {
+      "company": "Bridgetek Pte. Ltd.",
+      "location": "Singapore",
+      "dates": "Jan 2020 – Aug 2021",
+      "role": "Sr. Software Engineer  |  Enterprise Room Management Platform",
+      "bullets": [
+        "Designed and delivered scalable microservices-based full-stack applications using Node.js, Angular, and PostgreSQL.",
+        "Worked on Kubernetes-based container orchestration and deployment pipelines; leveraged Terraform for infrastructure-as-code automation.",
+        "Improved backend modularity, deployment scalability, and team velocity through microservices adoption and Docker containerization."
+      ]
+    },
+    {
+      "company": "Mobiquity India",
+      "location": "India",
+      "dates": "Mar 2018 – Dec 2019",
+      "role": "Sr. Software Developer  |  AWS Serverless Platform",
+      "bullets": [
+        "Developed serverless REST APIs for web and mobile applications using Node.js and TypeScript on AWS.",
+        "Built AWS cloud-native solutions using API Gateway, Lambda, DynamoDB, and S3 — key foundation of extensive AWS Serverless experience.",
+        "Implemented scalable backend services optimized for low operational overhead and high availability.",
+        "Contributed to backend architecture and API lifecycle management for enterprise applications at scale."
+      ]
+    },
+    {
+      "company": "Nihilent Ltd.",
+      "location": "India",
+      "dates": "Feb 2017 – Mar 2018",
+      "role": "System Analyst  |  Banking Enterprise Applications",
+      "bullets": [
+        "Analyzed business requirements and delivered enterprise frontend features using Angular and JavaScript for Nedbank, a major financial services client.",
+        "Worked on frontend development with Angular alongside .NET backend integration for enterprise banking workflows."
+      ]
+    },
+    {
+      "company": "TAS India Pvt. Ltd.",
+      "location": "India",
+      "dates": "Mar 2015 – Feb 2017",
+      "role": "Software Developer  |  IIoT & Real-Time Systems",
+      "bullets": [
+        "Developed full-stack IIoT and telemetry solutions for solar energy monitoring using Node.js, Angular, and MongoDB.",
+        "Implemented real-time device communication using MQTT and Modbus protocols for industrial IoT deployments.",
+        "Built cloud-connected IoT systems with real-time data ingestion, telemetry processing, and analytics dashboards."
+      ]
+    },
+    {
+      "company": "HashTrix Technologies Pvt. Ltd.",
+      "location": "Pune, India",
+      "dates": "Jun 2014 – Apr 2015",
+      "role": "Software Developer  |  ERP Development",
+      "bullets": [
+        "Developed ERP application modules using JavaScript and SQL; contributed to backend feature implementation, business logic, and database operations."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Healthcare Enterprise Platform (Hexaware / Otsuka)",
+      "description": "Full-stack platform with Node.js + TypeScript backend, Angular 16+ with AG Grid/AG Chart dashboards, AWS Lambda/S3/CloudWatch/KMS, Kafka event-driven pipelines, Jest + Cypress testing. Served web and mobile platforms at enterprise scale."
+    },
+    {
+      "name": "Guidesly SaaS Backend (Guidesly)",
+      "description": "Scalable REST APIs using Node.js, Express.js, PostgreSQL, AWS Lambda, API Gateway, DynamoDB. Third-party insurance API integrations, microservice components, Docker-based CI/CD deployment."
+    },
+    {
+      "name": "AWS Serverless Platform (Mobiquity / AWS re:Invent)",
+      "description": "Serverless REST APIs using Node.js + TypeScript, API Gateway, Lambda, DynamoDB, S3. Optimized for high availability and low operational overhead."
+    },
+    {
+      "name": "PanL Room Manager (Bridgetek)",
+      "description": "Microservices-based enterprise full-stack platform with Node.js, Docker, Kubernetes, Terraform IaC, Angular, and PostgreSQL."
+    },
+    {
+      "name": "TASM2M Solar IoT (TAS India)",
+      "description": "IIoT telemetry platform using MQTT, Modbus, Node.js, Angular, and MongoDB with real-time monitoring dashboards and cloud-connected device management."
+    }
+  ],
+  "awards": [
+    {
+      "title": "AWS Certified Solutions Architect – Associate",
+      "description": "Certified hands-on expertise across Lambda, DynamoDB, API Gateway, S3, CloudWatch, KMS, IAM, and core AWS infrastructure."
+    },
+    {
+      "title": "Delivery Excellence — Hexaware Technologies (2023)",
+      "description": "Recognized for leading healthcare platform backend modernization with Angular 16+ frontend and full AWS Serverless integration."
+    }
+  ],
+  "certifications": [
+    {
+      "title": "AWS Certified Solutions Architect – Associate"
+    },
+    {
+      "title": "Generative AI & LLMs (In Progress, 2026)",
+      "description": "Focus: RAG Pipelines, Prompt Engineering, Multi-Agent Systems, Claude API, AI Workflow Automation."
+    },
+    {
+      "title": "AI-Assisted Development",
+      "description": "Active use of Amazon Q, GitHub Copilot, and Claude API for productivity acceleration, automated testing, and debugging."
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master of Computer Science (MCS)",
+      "institution": "Savitribai Phule Pune University, Pune",
+      "dates": "2012 – 2014"
+    },
+    {
+      "degree": "Bachelor of Computer Science (BCS)",
+      "institution": "Pune University, Pune",
+      "dates": "2009 – 2012"
+    }
+  ]
+}

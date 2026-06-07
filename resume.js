@@ -5,6 +5,9 @@ const {
 const fs = require('fs');
 const { convert } = require('docx-to-pdf');
 
+// Load resume data from JSON
+const resumeData = JSON.parse(fs.readFileSync('./resume-data.json', 'utf8'));
+
 const NAME_COLOR   = "1F4464";  // #23496D name - dark navy  
 const BLUE         = "3D71A3";  // section headers, blue rule line, skills left col text
 const SUBTITLE_BLU = "4A6E8E";  // subtitle pipe-separated line (slightly muted blue)
@@ -177,7 +180,7 @@ const doc = new Document({
         alignment: AlignmentType.CENTER,
         spacing: { before: 0, after: 30 },
         children: [new TextRun({
-          text: "KRUSHNA THUBE",
+          text: resumeData.personal.name,
           bold: true, size: 52, font: "Calibri", color: NAME_COLOR,
         })]
       }),
@@ -187,7 +190,7 @@ const doc = new Document({
         alignment: AlignmentType.CENTER,
         spacing: { before: 0, after: 20 },
         children: [new TextRun({
-          text: "Senior Full Stack Developer  |  Node.js  |  Angular 16+  |  React  |  AWS Serverless  |  Microservices  |  GenAI",
+          text: resumeData.personal.subtitle,
           size: 21, font: "Calibri", color: SUBTITLE_BLU,
         })]
       }),
@@ -197,8 +200,8 @@ const doc = new Document({
         alignment: AlignmentType.CENTER,
         spacing: { before: 0, after: 80 },
         children: [
-          new TextRun({ text: "Pune, Maharashtra  |  +91 7387476746  |  krushnathube19@gmail.com  |  ", size: 20, font: "Calibri", color: CONTACT_GRAY }),
-          new TextRun({ text: "linkedin.com/in/krushna-thube/", size: 20, font: "Calibri", color: BLUE }),
+          new TextRun({ text: `${resumeData.personal.location}  |  ${resumeData.personal.phone}  |  ${resumeData.personal.email}  |  `, size: 20, font: "Calibri", color: CONTACT_GRAY }),
+          new TextRun({ text: resumeData.personal.linkedin, size: 20, font: "Calibri", color: BLUE }),
         ]
       }),
 
@@ -206,151 +209,68 @@ const doc = new Document({
       sectionHeader("Professional Summary"),
       new Paragraph({
         spacing: { before: 100, after: 100 },
-        children: [
-          new TextRun({ text: "Senior Full Stack Developer with ", size: 20, font: "Calibri", color: BODY_TEXT }),
-          new TextRun({ text: "11+ years", bold: true, size: 20, font: "Calibri", color: BODY_TEXT }),
-          new TextRun({ text: " of experience building scalable SaaS platforms, cloud-native microservices, and high-performance enterprise applications across healthcare, fintech, IoT, ERP, and enterprise collaboration domains. Strong expertise in ", size: 20, font: "Calibri", color: BODY_TEXT }),
-          new TextRun({ text: "Node.js, TypeScript, Angular 16+, React, AWS Serverless (Lambda, DynamoDB, API Gateway, S3, CloudWatch, KMS)", bold: true, size: 20, font: "Calibri", color: BODY_TEXT }),
-          new TextRun({ text: ", Kafka-based event-driven systems, Docker, and Kubernetes. Proven ability to deliver production-grade REST APIs, real-time systems, and containerized full-stack applications. Currently advancing expertise in ", size: 20, font: "Calibri", color: BODY_TEXT }),
-          new TextRun({ text: "Generative AI, LLMs, RAG pipelines, and AI-assisted development", bold: true, size: 20, font: "Calibri", color: BODY_TEXT }),
-          new TextRun({ text: " workflows. AWS Certified Solutions Architect — Associate. Consistently recognized for performance optimization, team leadership, and delivering enterprise-grade solutions in Agile environments.", size: 20, font: "Calibri", color: BODY_TEXT }),
-        ]
+        children: [new TextRun({ text: resumeData.summary.content, size: 20, font: "Calibri", color: BODY_TEXT })]
       }),
 
       // ── TECHNICAL SKILLS ──────────────────────────────────────────────────
       sectionHeader("Technical Skills"),
       new Paragraph({ spacing: { before: 80, after: 40 }, children: [] }),
-      skillsTable([
-        ["Languages",        "JavaScript (ES6+), TypeScript, SQL, HTML5, CSS3"],
-        ["Frontend",         "Angular 16+, TypeScript, React.js, AG Grid, AG Chart, jQuery, Responsive UI"],
-        ["Backend",          "Node.js, Express.js, NestJS, REST APIs, GraphQL, WebSockets, Middleware Development, Backend Architecture"],
-        ["Cloud / DevOps",   "AWS Lambda, API Gateway, DynamoDB, S3, CloudWatch, KMS, IAM, SQS, SNS, EventBridge, Step Functions, ECS, EC2, Cognito, Docker, Kubernetes, Terraform, Jenkins, GitHub Actions, CI/CD"],
-        ["Databases",        "MongoDB, PostgreSQL, MySQL, DynamoDB, Redis, Mongoose, TypeORM"],
-        ["Architecture",     "Microservices, Event-Driven Architecture, Kafka, Distributed Systems, Serverless, Monolith-to-Microservices, SaaS Platform Design"],
-        ["Testing",          "Jest, Mocha, Chai, Sinon, Supertest, Cypress, Unit Testing, Integration Testing, TDD, ESLint, Prettier"],
-        ["Security & Auth",  "JWT, OAuth 2.0, API Security, Rate Limiting, AWS KMS, AWS Cognito"],
-        ["AI / GenAI",       "LLMs, RAG Pipelines, Prompt Engineering, Claude API, Amazon Q, GitHub Copilot, AI-Assisted Development"],
-        ["Practices",        "System Design, SOLID Principles, OOP, Performance Optimization, Agile / Scrum, Code Reviews, Mentoring"],
-      ]),
+      skillsTable(resumeData.skills.map(s => [s.label, s.value])),
       new Paragraph({ spacing: { before: 60, after: 0 }, children: [] }),
 
       // ── PROFESSIONAL EXPERIENCE ───────────────────────────────────────────
       sectionHeader("Professional Experience"),
 
-      // --- Guidesly ---
-      companyLine("Guidesly India Pvt. Ltd.", "Bangalore, India", "Apr 2025 – Present"),
-      roleLine("Sr. Backend Developer  |  SaaS Platform Engineering"),
-      bullet([t("Designed and developed scalable backend services and RESTful APIs using Node.js, Express.js, and PostgreSQL for a SaaS-based fishing guide platform serving web and mobile clients.")]),
-      bullet([t("Built cloud-native serverless solutions using "), b("AWS Lambda, API Gateway, DynamoDB, S3, and CloudWatch"), t(" for scalable event-driven backend workflows.")]),
-      bullet([t("Implemented third-party insurance API integrations and developed Classes & Certifications modules for the Guidesly SaaS ecosystem.")]),
-      bullet([t("Developed microservice-oriented backend components with focus on scalability, maintainability, and production reliability.")]),
-      bullet([t("Containerized backend services using Docker and supported CI/CD deployment automation workflows.")]),
-      bullet([t("Improved application quality through automated unit and integration testing using Jest, Mocha, and Chai.")]),
-      bullet([t("Collaborated in Agile delivery teams using JIRA and Confluence for sprint planning and release execution.")]),
-
-      // --- Hexaware ---
-      thinRule(),
-      companyLine("Hexaware Technologies", "Pune, India", "Aug 2021 – Mar 2025"),
-      roleLine("Sr. Software Engineer — MEAN Stack Developer  |  Healthcare Enterprise Platform"),
-      bullet([t("Architected and delivered scalable "), b("Node.js backend services with TypeScript"), t(" and enterprise REST APIs supporting high-availability healthcare web and mobile platforms.")]),
-      bullet([t("Designed and implemented "), b("AWS Serverless solutions (Lambda, S3, CloudWatch, KMS)"), t(" for secure healthcare data processing and event-driven workflows.")]),
-      bullet([t("Developed "), b("Angular 16+ frontend modules"), t(" with data-rich dashboards using "), b("AG Grid and AG Chart"), t(" for real-time clinical and operational data visualization.")]),
-      bullet([t("Built high-throughput Kafka-based event-driven pipelines for distributed healthcare data processing across web and mobile platforms.")]),
-      bullet([t("Authored comprehensive unit tests using "), b("Jest"), t(" and end-to-end test suites using "), b("Cypress"), t(", maintaining high coverage across critical modules.")]),
-      bullet([t("Integrated AI-assisted development tools ("), b("Amazon Q, GitHub Copilot"), t(") to accelerate feature delivery, code review, and debugging efficiency in Agile CI/CD environments.")]),
-      bullet([t("Contributed to containerized application deployment using Docker and participated in system design, API optimization, and backend architecture planning.")]),
-
-      // --- Bridgetek ---
-      thinRule(),
-      companyLine("Bridgetek Pte. Ltd.", "Singapore", "Jan 2020 – Aug 2021"),
-      roleLine("Sr. Software Engineer  |  Enterprise Room Management Platform"),
-      bullet([t("Designed and delivered scalable microservices-based full-stack applications using Node.js, Angular, and PostgreSQL.")]),
-      bullet([t("Worked on "), b("Kubernetes"), t("-based container orchestration and deployment pipelines; leveraged "), b("Terraform"), t(" for infrastructure-as-code automation.")]),
-      bullet([t("Improved backend modularity, deployment scalability, and team velocity through microservices adoption and Docker containerization.")]),
-
-      // --- Mobiquity ---
-      thinRule(),
-      companyLine("Mobiquity India", "India", "Mar 2018 – Dec 2019"),
-      roleLine("Sr. Software Developer  |  AWS Serverless Platform"),
-      bullet([t("Developed serverless REST APIs for web and mobile applications using "), b("Node.js and TypeScript"), t(" on AWS.")]),
-      bullet([b("Built AWS cloud-native solutions using API Gateway, Lambda, DynamoDB, and S3"), t(" — key foundation of extensive AWS Serverless experience.")]),
-      bullet([t("Implemented scalable backend services optimized for low operational overhead and high availability.")]),
-      bullet([t("Contributed to backend architecture and API lifecycle management for enterprise applications at scale.")]),
-
-      // --- Nihilent ---
-      thinRule(),
-      companyLine("Nihilent Ltd.", "India", "Feb 2017 – Mar 2018"),
-      roleLine("System Analyst  |  Banking Enterprise Applications"),
-      bullet([t("Analyzed business requirements and delivered enterprise frontend features using Angular and JavaScript for Nedbank, a major financial services client.")]),
-      bullet([t("Worked on frontend development with Angular alongside .NET backend integration for enterprise banking workflows.")]),
-
-      // --- TAS India ---
-      thinRule(),
-      companyLine("TAS India Pvt. Ltd.", "India", "Mar 2015 – Feb 2017"),
-      roleLine("Software Developer  |  IIoT & Real-Time Systems"),
-      bullet([t("Developed full-stack IIoT and telemetry solutions for solar energy monitoring using Node.js, Angular, and MongoDB.")]),
-      bullet([t("Implemented real-time device communication using "), b("MQTT"), t(" and "), b("Modbus"), t(" protocols for industrial IoT deployments.")]),
-      bullet([t("Built cloud-connected IoT systems with real-time data ingestion, telemetry processing, and analytics dashboards.")]),
-
-      // --- HashTrix ---
-      thinRule(),
-      companyLine("HashTrix Technologies Pvt. Ltd.", "Pune, India", "Jun 2014 – Apr 2015"),
-      roleLine("Software Developer  |  ERP Development"),
-      bullet([t("Developed ERP application modules using JavaScript and SQL; contributed to backend feature implementation, business logic, and database operations.")]),
+      ...resumeData.experience.flatMap((job, idx) => [
+        ...(idx > 0 ? [thinRule()] : []),
+        companyLine(job.company, job.location, job.dates),
+        roleLine(job.role),
+        ...job.bullets.map(bulletText => bullet([t(bulletText)])),
+      ]),
 
       // ── KEY PROJECTS ──────────────────────────────────────────────────────
       sectionHeader("Key Projects"),
       new Paragraph({ spacing: { before: 80, after: 0 }, children: [] }),
-      bullet([b("Healthcare Enterprise Platform (Hexaware / Otsuka)"), t(" — Full-stack platform with Node.js + TypeScript backend, Angular 16+ with AG Grid/AG Chart dashboards, AWS Lambda/S3/CloudWatch/KMS, Kafka event-driven pipelines, Jest + Cypress testing. Served web and mobile platforms at enterprise scale.")]),
-      bullet([b("Guidesly SaaS Backend (Guidesly)"), t(" — Scalable REST APIs using Node.js, Express.js, PostgreSQL, AWS Lambda, API Gateway, DynamoDB. Third-party insurance API integrations, microservice components, Docker-based CI/CD deployment.")]),
-      bullet([b("AWS Serverless Platform (Mobiquity / AWS re:Invent)"), t(" — Serverless REST APIs using Node.js + TypeScript, API Gateway, Lambda, DynamoDB, S3. Optimized for high availability and low operational overhead.")]),
-      bullet([b("PanL Room Manager (Bridgetek)"), t(" — Microservices-based enterprise full-stack platform with Node.js, Docker, Kubernetes, Terraform IaC, Angular, and PostgreSQL.")]),
-      bullet([b("TASM2M Solar IoT (TAS India)"), t(" — IIoT telemetry platform using MQTT, Modbus, Node.js, Angular, and MongoDB with real-time monitoring dashboards and cloud-connected device management.")]),
+      ...resumeData.projects.map(project => 
+        bullet([b(project.name), t(" — " + project.description)])
+      ),
 
       // ── AWARDS & RECOGNITION ──────────────────────────────────────────────
       sectionHeader("Awards & Recognition"),
       new Paragraph({ spacing: { before: 80, after: 0 }, children: [] }),
-      bullet([b("AWS Certified Solutions Architect – Associate"), t(" — Certified hands-on expertise across Lambda, DynamoDB, API Gateway, S3, CloudWatch, KMS, IAM, and core AWS infrastructure.")]),
-      bullet([b("Delivery Excellence — Hexaware Technologies (2023)"), t(" — Recognized for leading healthcare platform backend modernization with Angular 16+ frontend and full AWS Serverless integration.")]),
+      ...resumeData.awards.map(award => 
+        bullet([b(award.title), t(award.description ? " — " + award.description : "")])
+      ),
 
       // ── CERTIFICATIONS & LEARNING ─────────────────────────────────────────
       sectionHeader("Certifications & Learning"),
       new Paragraph({ spacing: { before: 80, after: 0 }, children: [] }),
-      bullet([b("AWS Certified Solutions Architect – Associate")]),
-      bullet([b("Generative AI & LLMs (In Progress, 2026)"), t(" — Focus: RAG Pipelines, Prompt Engineering, Multi-Agent Systems, Claude API, AI Workflow Automation.")]),
-      bullet([t("AI-Assisted Development — Active use of "), b("Amazon Q, GitHub Copilot, and Claude API"), t(" for productivity acceleration, automated testing, and debugging.")]),
+      ...resumeData.certifications.map(cert => 
+        bullet([b(cert.title), t(cert.description ? " — " + cert.description : "")])
+      ),
 
       // ── EDUCATION ─────────────────────────────────────────────────────────
       sectionHeader("Education"),
       new Paragraph({ spacing: { before: 80, after: 0 }, children: [] }),
-      ...eduEntry(
-        "Master of Computer Science (MCS)",
-        "Savitribai Phule Pune University, Pune",
-        "2012 – 2014"
-      ),
-      ...eduEntry(
-        "Bachelor of Computer Science (BCS)",
-        "Pune University, Pune",
-        "2009 – 2012"
-      ),
+      ...resumeData.education.flatMap(edu => eduEntry(edu.degree, edu.institution, edu.dates)),
 
     ]
   }]
 });
 
 Packer.toBuffer(doc).then(buf => {
-  const docxPath = "/mnt/user-data/outputs/KrushnaThube_Updated.docx";
-  const pdfPath = "/mnt/user-data/outputs/KrushnaThube_Updated.pdf";
+  const docxPath = "/mnt/user-data/outputs/Krushna_Thube_Resume.docx";
+  const pdfPath = "/mnt/user-data/outputs/Krushna_Thube_Resume.pdf";
   
   fs.writeFileSync(docxPath, buf);
-  console.log("Generated DOCX: KrushnaThube_Updated.docx");
+  console.log("Generated DOCX: Krushna_Thube_Resume.docx");
   
   // Convert DOCX to PDF
   convert({
     input: docxPath,
     output: pdfPath
   }).then(() => {
-    console.log("Generated PDF: KrushnaThube_Updated.pdf");
+    console.log("Generated PDF: Krushna_Thube_Resume.pdf");
     console.log("Done - Both DOCX and PDF generated successfully");
   }).catch(err => {
     console.error("PDF conversion failed:", err);
