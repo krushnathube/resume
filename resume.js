@@ -3,8 +3,8 @@ const {
   AlignmentType, BorderStyle, WidthType, ShadingType, LevelFormat,
 } = require('docx');
 const fs = require('fs');
+const { convert } = require('docx-to-pdf');
 
-// ── EXACT COLORS from pixel analysis of Virendra's PDF ──────────────────────
 const NAME_COLOR   = "1F4464";  // #23496D name - dark navy  
 const BLUE         = "3D71A3";  // section headers, blue rule line, skills left col text
 const SUBTITLE_BLU = "4A6E8E";  // subtitle pipe-separated line (slightly muted blue)
@@ -21,7 +21,7 @@ const CW      = PAGE_W - MARGIN * 2; // 10080
 
 // ── HELPERS ──────────────────────────────────────────────────────────────────
 
-// Section header: bold blue ALL-CAPS text + blue border-bottom rule (EXACTLY like Virendra)
+// Section header: bold blue ALL-CAPS text + blue border-bottom rule
 function sectionHeader(text) {
   return new Paragraph({
     spacing: { before: 300, after: 100 },
@@ -35,7 +35,7 @@ function sectionHeader(text) {
   });
 }
 
-// Thin BLACK rule line between job entries (like Virendra's inter-job separators)
+// Thin BLACK rule line between job entries
 function thinRule() {
   return new Paragraph({
     spacing: { before: 0, after: 0 },
@@ -339,6 +339,20 @@ const doc = new Document({
 });
 
 Packer.toBuffer(doc).then(buf => {
-  fs.writeFileSync("/mnt/user-data/outputs/KrushnaThube_Updated.docx", buf);
-  console.log("Done");
+  const docxPath = "/mnt/user-data/outputs/KrushnaThube_Updated.docx";
+  const pdfPath = "/mnt/user-data/outputs/KrushnaThube_Updated.pdf";
+  
+  fs.writeFileSync(docxPath, buf);
+  console.log("Generated DOCX: KrushnaThube_Updated.docx");
+  
+  // Convert DOCX to PDF
+  convert({
+    input: docxPath,
+    output: pdfPath
+  }).then(() => {
+    console.log("Generated PDF: KrushnaThube_Updated.pdf");
+    console.log("Done - Both DOCX and PDF generated successfully");
+  }).catch(err => {
+    console.error("PDF conversion failed:", err);
+  });
 });

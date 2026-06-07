@@ -1,0 +1,25 @@
+{
+  "name": "resume-generator",
+  "version": "1.0.0",
+  "description": "Dynamic resume generator - outputs DOCX and PDF formats",
+  "main": "resume.js",
+  "scripts": {
+    "start": "node resume.js",
+    "generate": "node resume.js"
+  },
+  "keywords": [
+    "resume",
+    "docx",
+    "pdf",
+    "generator"
+  ],
+  "author": "Krushna Thube",
+  "license": "MIT",
+  "dependencies": {
+    "docx": "^8.11.8",
+    "docx-to-pdf": "^2.5.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
